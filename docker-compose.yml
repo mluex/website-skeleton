@@ -1,0 +1,23 @@
+version: '3'
+services:
+    apache:
+        build: .docker/apache
+        container_name: website_apache
+        ports:
+          - 8080:80
+          - 8443:443
+        volumes:
+          - .docker/config/vhosts:/etc/apache2/sites-enabled
+          - .:/home/wwwroot/website
+        depends_on:
+          - php
+        environment:
+          TZ: Europe/Berlin
+
+    php:
+        build: .docker/php
+        container_name: website_php
+        volumes:
+          - .:/home/wwwroot/website
+        environment:
+          - TZ=Europe/Berlin

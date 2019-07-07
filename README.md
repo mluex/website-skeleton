@@ -1,6 +1,6 @@
 # website-skeleton
 ## Introduction
-This website skeleton uses Zend's service manager their PSR-15 packages to integrate them into a quite small website starter package along withe league/router and league/plates.
+This website skeleton uses Zend's service manager and their PSR-15 packages to integrate them into a quite small website starter package along withe league/router and league/plates.
 
 It ships together with a pre-configured Docker environment for developing.
 

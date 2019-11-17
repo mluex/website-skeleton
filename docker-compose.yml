@@ -1,7 +1,7 @@
 version: '3'
 services:
     apache:
-        build: .docker/apache
+        image: mluex/apache-dev
         container_name: website_apache
         ports:
           - 8080:80
@@ -15,9 +15,11 @@ services:
           TZ: Europe/Berlin
 
     php:
-        build: .docker/php
+        image: mluex/php-dev:7.2
         container_name: website_php
         volumes:
           - .:/home/wwwroot/website
+          - .docker/config/php/php.ini:/usr/local/etc/php/php.ini
+          - .docker/config/php/php-fpm-pool.ini:/usr/local/etc/php/pool.d/www.conf
         environment:
           - TZ=Europe/Berlin
